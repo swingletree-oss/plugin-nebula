@@ -4,4 +4,4 @@ nebula:
   port: 4010
 
   urls:
-    scotty: http://localhost:5000
+    scotty: # scotty base url
