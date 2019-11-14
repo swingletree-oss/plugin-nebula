@@ -24,7 +24,16 @@ Swingletree blocks Pull Requests if tests are failing in the Gradle build.
 ## Sending a metrics report to Swingletree
 
 The Nebula webhook is published when the Nebula Plugin is enabled.
-It accepts a Nebula Gradle Metrics Plugin report as a payload and needs some additional http headers to link the report to a GitHub repository:
+It accepts a Nebula Gradle Metrics Plugin report as a payload and needs some additional http headers to link the report to a GitHub repository.
+
+```yaml
+gate:
+  plugins:
+    - id: nebula
+      base: # enter base url of plugin-nebula instance
+```
+
+Gate publishes an endpoint which is connected to the plugin. You will need to attach information about the target repository using the provided methods of Gate (for example HTTP Headers or query parameters):
 
 ```groovy
 buildscript {
