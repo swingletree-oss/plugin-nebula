@@ -61,7 +61,11 @@ class NebulaWebhook {
       reportData.payload.build = JSON.parse(reportData.payload.build as any);
     } catch (err) {
       log.warn("failed to parse gradle-metrics build payload. Skipping event.");
-      res.status(400).send("could not parse build payload. Check your request.");
+      res.status(400).send(
+        new Comms.Message.ErrorMessage(
+          new BadRequestError("could not parse build payload. Check your request.")
+        )
+      );
       return;
     }
 
