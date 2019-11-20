@@ -83,7 +83,7 @@ export class NebulaStatusEmitter {
     return counts;
   }
 
-  public async sendReport(report: NebulaModel.Report, source: Harness.ScmSource) {
+  public async sendReport(report: NebulaModel.Report, source: Harness.ScmSource, uid: string) {
     const annotations = this.getAnnotations(report);
     const build = report.payload.build;
 
@@ -94,6 +94,7 @@ export class NebulaStatusEmitter {
       source: source,
       checkStatus: report.payload.build.result.status == NebulaModel.ResultValue.SUCCESS ? Harness.Conclusion.PASSED : Harness.Conclusion.BLOCKED,
       title: `${report.payload.build.testCount} Tests`,
+      uuid: uid,
       metadata: {
         project: build.project,
         java: {

@@ -93,7 +93,7 @@ class NebulaWebhook {
 
     if (this.isWebhookEventRelevant(webhookData)) {
       // check if installation is available
-      this.statusEmitter.sendReport(webhookData, source);
+      this.statusEmitter.sendReport(webhookData, source, message.meta.buildUuid);
     } else {
       log.debug("gradle-metrics webhook data did not contain a report. This event will be ignored.");
       res.status(400).send(
