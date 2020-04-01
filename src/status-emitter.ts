@@ -109,12 +109,16 @@ export class NebulaStatusEmitter {
           elapsedTime: build.elapsedTime,
           startTime: build.startTime,
           finishedTime: build.finishedTime,
+          result: report.payload.build.result?.status,
           tasks: build.tasks.map(it => {
             return it.description;
           })
         },
         test: {
-          count: build.testCount
+          count: build.testCount,
+          failed: counts.failed,
+          skipped: counts.skipped,
+          unknown: counts.unknown
         }
       },
       annotations: annotations
