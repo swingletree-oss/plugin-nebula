@@ -1,3 +1,5 @@
+import "reflect-metadata";
+
 import { log } from "@swingletree-oss/harness";
 import container from "./ioc-config";
 import { NebulaStatusEmitter } from "./status-emitter";
