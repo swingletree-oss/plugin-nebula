@@ -50,10 +50,10 @@ if (thisIsCiBuild) { // needs to be specified by you
       restUri = 'https://swingletree/reports/nebula' // can be injected by CI server using properties or env vars
 
       // header values need to be extracted and set
-      headers['X-swingletree-org'] = <GitHub Organization>
-      headers['X-swingletree-repo'] = <GitHub Repository Name>
-      headers['X-swingletree-sha'] = <Git commit sha>
-      headers['X-swingletree-branch'] = <Git branch>
+      headers['swingletree-org'] = <GitHub Organization>
+      headers['swingletree-repo'] = <GitHub Repository Name>
+      headers['swingletree-sha'] = <Git commit sha>
+      headers['swingletree-branch'] = <Git branch>
   }
 }
 ```
