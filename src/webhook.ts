@@ -79,10 +79,9 @@ class NebulaWebhook {
       return;
     }
 
-    const source = new Harness.GithubSource();
-    Object.assign(source, message.meta.source);
+    const source = new Harness.GithubSource(message.meta.source as Harness.GithubSource);
 
-    if (!source.isDataComplete()) {
+    if (!Harness.GithubSource.isDataComplete(source)) {
       res.status(400).send(
         new Comms.Message.ErrorMessage(
           new BadRequestError("missing source coordinates in request metadata.")
